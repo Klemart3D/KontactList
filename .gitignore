@@ -1,0 +1,15 @@
+# Cordova platforms and plugins
+platforms/
+plugins/
+resources/signing
+
+# IntelliJ IDEA files
+*.iml
+.idea
+
+# Mac OS files
+.DS_Store
+
+# Windows files
+Thumbs.db
+Desktop.ini

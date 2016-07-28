@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="utf-8">
+        <!--<meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *">-->
+        <meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+
+	    <title>Kontact List</title>
+
+	    <!-- CSS Global -->
+	    <link rel="stylesheet" type="text/css" href="css/index.css">
+
+	    <!-- Get jQuery + jQueryMobile -->
+	    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+	    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+	    <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    </head>
+
+    <body>
+
+	    <!-- Page Contact list -->
+	    <div data-role="page" data-theme="b" id="pageKontactList">
+		    <header data-role="header">
+			    <h1><img src="img/logo.png" width="30px">Kontact List</h1>
+			    <a href="#pageAddKontact" class="ui-btn ui-btn-right ui-icon-plus ui-btn-icon-left" data-transition="pop">Add contact</a>
+		    </header>
+
+		    <div role="list" class="ui-content">
+			    <p id="NoKontact">Aucun contact enregistré</p>
+			    <ul id="kontactList"></ul>
+		    </div>
+	    </div>
+
+	    <!-- Page Add contact -->
+	    <div data-role="page" data-theme="b" id="pageAddKontact">
+		    <header data-role="header">
+			    <h1>Ajouter un Kontact</h1>
+			    <a href="#pageKontactList" class="ui-btn ui-icon-bars ui-btn-icon-left" data-transition="pop" data-direction="reverse">Liste</a>
+			    <a href="#pageKontactList" class="ui-btn ui-icon-delete ui-btn-icon-left ui-btn-icon-notext ui-corner-all" data-transition="pop" data-direction="reverse">Button</a>
+		    </header>
+
+		    <div role="main" class="ui-content">
+
+			    <form role="form" class="ui-content" id="formAddKontact">
+				    <div id="errors" style="color: red"></div>
+				    <div class="ui-field-contain">
+					    <label for="kontactLastName">Nom :</label>
+					    <input type="text" id="kontactLastName" class="ui-btn"/>
+				    </div>
+				    <div class="ui-field-contain">
+					    <label for="kontactLastName">Prénom :</label>
+				        <input type="text" id="kontactFirstName" class="ui-btn"/>
+				    </div>
+				    <div class="ui-field-contain">
+					    <label for="kontactLastName">Tel :</label>
+					    <input type="text" id="kontactPhone" class="ui-btn"/>
+				    </div>
+				    <div class="ui-field-contain">
+					    <label for="kontactLastName">Email :</label>
+					    <input type="text" id="kontactMail" class="ui-btn"/>
+				    </div>
+				    <div class="ui-field-contain">
+					    <label for="kontactLastName">Date de naissance :</label>
+					    <input type="date" id="kontactBirth" class="ui-btn"/>
+				    </div>
+				    <div class="ui-field-contain">
+					    <label for="kontactLastName">Photo :</label>
+					    <button onclick="capturePhoto(event);" id="kontactPicture" class="ui-btn ui-icon-camera ui-btn-inline ui-shadow ui-nodisc-icon ui-btn-icon-left"><img id="takenPicture" src=""/>Photographier</button>
+					    <button onclick="uploadPhoto(event);" class="ui-btn ui-icon-arrow-u ui-btn-inline ui-shadow ui-nodisc-icon ui-btn-icon-left">Charger</button>
+				    </div>
+			        <input type="submit" id="submitAddKontact" value="Enregistrer" >
+			    </form>
+		    </div>
+        </div>
+
+	    <!-- Scripts JS -->
+        <script type="text/javascript" src="cordova.js"></script>
+	    <script src="js/eventEmitter.js"></script>
+	    <script src="js/camera.js"></script>
+	    <script src="js/kontactModel.js"></script> <!-- Le modèle DAO -->
+	    <script src="js/kontactObject.js"></script> <!-- Le modèle DTO -->
+	    <script src="js/kontactView.js"></script> <!-- La vue -->
+	    <script src="js/kontactController.js"></script> <!-- Le controlleur -->
+	    <!--<script src="js/error.js"></script>-->
+	    <!--<script src="js/errorView.js"></script>-->
+	    <script src="js/app.js"></script>
+    </body>
+</html>
